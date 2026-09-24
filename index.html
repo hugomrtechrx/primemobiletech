@@ -55,6 +55,20 @@
 
     .nav-links a:hover { opacity: 0.8; }
 
+    .nav-contact-btn {
+      background: #0B7FD7;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      transition: background 0.3s, opacity 0.3s;
+    }
+
+    .nav-contact-btn:hover { background: #0B3D66; opacity: 1; }
+
+    .nav-contact-btn { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .fb-icon { display: block; flex-shrink: 0; }
+
+    .nav-phone { font-weight: 700; white-space: nowrap; }
+
     .hero {
       background: linear-gradient(135deg, #0B7FD7 0%, #0B3D66 100%);
       color: white;
@@ -167,7 +181,7 @@
 
     .quick-actions {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.75rem;
       margin-top: 1rem;
     }
@@ -184,6 +198,35 @@
     }
 
     .quick-actions a:hover { transform: translateY(-1px); opacity: 0.95; }
+
+    .messenger-fab {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #0B7FD7;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.85rem 1.25rem;
+      border-radius: 999px;
+      box-shadow: 0 10px 25px rgba(11,61,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .messenger-fab:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(11,61,102,0.45);
+    }
+
+    .messenger-fab .fab-icon { font-size: 1.3rem; line-height: 1; }
+
+    @media (max-width: 600px) {
+      .messenger-fab { right: 1rem; bottom: 1rem; padding: 0.75rem 1rem; font-size: 0.95rem; }
+    }
 
     .features {
       padding: 5rem 2rem;
@@ -523,6 +566,8 @@
         <li><a href="#calculator">Get Price</a></li>
         <li><a href="#how">How It Works</a></li>
         <li><a href="#locations">Service Area</a></li>
+        <li><a href="tel:+13342034233" class="nav-phone">📞 (334) 203-4233</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61589155535331" target="_blank" rel="noopener noreferrer" class="nav-contact-btn"><svg class="fb-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/></svg> Contact Us</a></li>
       </ul>
     </nav>
   </header>
@@ -607,6 +652,7 @@
           <a id="callBtn" href="tel:+13342034233">📞 Call</a>
           <a id="textBtn" href="sms:+13342034233">💬 Text</a>
           <a id="emailBtn" href="mailto:info@primemobiletech.com">✉️ Email</a>
+          <a id="messengerBtn" href="https://m.me/61589155535331" target="_blank" rel="noopener noreferrer">📨 Message</a>
         </div>
 
         <div class="disclaimer">
@@ -645,8 +691,8 @@
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon">🏠</div>
-          <h3>Local Montgomery Business</h3>
-          <p>Proudly serving Montgomery and surrounding Alabama communities. Support local!</p>
+          <h3>Local Montgomery & Troy Business</h3>
+          <p>Proudly serving Montgomery, Troy, and surrounding Alabama communities. Support local!</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon">🔒</div>
@@ -709,9 +755,7 @@
         <div class="area-badge">Millbrook</div>
         <div class="area-badge">Wetumpka</div>
         <div class="area-badge">Pike Road</div>
-        <div class="area-badge">Selma</div>
         <div class="area-badge">Auburn</div>
-        <div class="area-badge">Opelika</div>
       </div>
       <p style="font-size: 1.1rem; margin-top: 2rem;">Don't see your area? Contact us — we may still be able to help!</p>
     </div>
@@ -731,6 +775,10 @@
       Turning your old phones into cash while reducing e-waste in our community.
     </p>
   </footer>
+
+  <a class="messenger-fab" href="https://m.me/61589155535331" target="_blank" rel="noopener noreferrer" aria-label="Message us on Facebook Messenger">
+    <span class="fab-icon">📨</span> Message Us
+  </a>
 
   <!-- Privacy Policy Modal -->
   <div id="privacyModal" class="modal" role="dialog" aria-modal="true" aria-label="Privacy Policy">
