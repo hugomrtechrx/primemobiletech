@@ -908,10 +908,10 @@
           '2TB': { new_in_box: 920, flawless: 890, good: 860, fair: 780, poor: 460 },
         },
         locked: {
-          '256GB': { new_in_box: 700, flawless: 630, good: 600, fair: 520, poor: 350 },
-          '512GB': { new_in_box: 720, flawless: 650, good: 620, fair: 540, poor: 370 },
-          '1TB': { new_in_box: 740, flawless: 670, good: 640, fair: 560, poor: 390 },
-          '2TB': { new_in_box: 760, flawless: 690, good: 660, fair: 580, poor: 410 },
+          '256GB': { new_in_box: 700, flawless: 660, good: 610, fair: 520, poor: 350 },
+          '512GB': { new_in_box: 720, flawless: 680, good: 630, fair: 540, poor: 370 },
+          '1TB': { new_in_box: 740, flawless: 700, good: 650, fair: 560, poor: 390 },
+          '2TB': { new_in_box: 760, flawless: 720, good: 670, fair: 580, poor: 410 },
         },
       },
       'iPhone 17 Pro': {
@@ -1249,9 +1249,9 @@
 
       if (!model || !storage || !carrier || !condition) return;
 
-      // Any carrier other than "unlocked" (AT&T, T-Mobile, Verizon, Spectrum,
-      // Other) uses the same locked price — none of the numbers distinguish
-      // between which specific carrier it's locked to.
+      // AT&T, T-Mobile, Verizon, Spectrum, and Other all share the same base
+      // "locked" price table — none of the numbers distinguish between which
+      // specific carrier it's locked to.
       const status = carrier === 'unlocked' ? 'unlocked' : 'locked';
       const table = ((conditionPrices[model] || {})[status] || {})[storage];
 
@@ -1260,6 +1260,11 @@
         priceAmountEl.textContent = '$0';
         resultEl.style.display = 'block';
         return;
+      }
+
+      // T-Mobile devices are priced $20 above the standard locked price.
+      if (carrier === 'tmobile') {
+        estimate += 20;
       }
 
       priceAmountEl.textContent = formatUSD(estimate);
